@@ -15,6 +15,8 @@ from langchain.prompts import MessagesPlaceholder
 from langchain.callbacks import FileCallbackHandler
 import telebot
 from dotenv import load_dotenv
+import threading
+from flask import Flask
 
 load_dotenv()
 google_api_key = os.getenv("GOOGLE_API_KEY")
@@ -352,6 +354,21 @@ def chat_with_agent(message):
     except Exception as e:
         bot.reply_to(message, "Вибач, я трохи заплутався в розрахунках. Спробуй переформулювати запит.")
         print(f"Помилка: {e}")
+
+# --- Мікро-вебсервер для хмарного хостингу (Render) ---
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "MoneyWise Bot is running!"
+
+def run_web():
+    # Render автоматично видасть порт, або використаємо 8080
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
+
+# Запускаємо вебсервер у паралельному потоці, щоб він не блокував бота
+threading.Thread(target=run_web).start()
 
 # Запускаємо бота в режимі постійного очікування повідомлень
 bot.infinity_polling()
