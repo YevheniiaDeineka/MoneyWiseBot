@@ -1,6 +1,7 @@
 # 🤖 MoneyWise AI (Telegram Financial Assistant)
 
-👉 **Спробувати бота онлайн:** [@AlgoBudgetBot](https://t.me/AlgoBudgetBot)
+👉 **Спробувати бота в Telegram:** [@AlgoBudgetBot](https://t.me/AlgoBudgetBot)
+🌐 **Веб-версія застосунку (Streamlit):** [moneywisebot.streamlit.app](https://moneywisebot.streamlit.app)
 
 MoneyWise — це розумний фінансовий асистент у Telegram, побудований на базі архітектури LangChain ReAct Agent та великої мовної моделі (LLM) Google Gemini. Бот здатний підтримувати природний діалог, запам'ятовувати контекст розмови та автономно використовувати спеціалізовані інструменти для вирішення фінансових задач користувача.
 
@@ -15,7 +16,7 @@ MoneyWise — це розумний фінансовий асистент у Tel
 
 * **Налаштування теми:**<br>
   <img src="img/settings_menu.png" alt="Налаштування теми" width="300">
-  
+
 ## 🌟 Основні можливості (Features)
 
 Бот працює як автономний агент і самостійно обирає потрібний інструмент з доступного арсеналу:
