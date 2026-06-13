@@ -1,4 +1,9 @@
+import os
 import streamlit as st
+
+if "GOOGLE_API_KEY" in st.secrets:
+    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+
 from agent import create_finance_agent
 
 # Налаштування сторінки
