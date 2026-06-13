@@ -11,7 +11,9 @@ from langchain.callbacks import FileCallbackHandler
 from dotenv import load_dotenv
 
 load_dotenv()
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+api_key = os.getenv("GOOGLE_API_KEY")
+if api_key:
+    os.environ["GOOGLE_API_KEY"] = api_key
 
 BUDGET_NORMS = {
     "житло": {"min": 0.20, "max": 0.30, "рекомендовано": 0.25},
