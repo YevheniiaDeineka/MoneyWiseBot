@@ -84,7 +84,7 @@ def create_finance_agent():
     
     memory = ConversationSummaryBufferMemory(
         llm=llm, 
-        max_token_limit=500, 
+        max_token_limit=5000, 
         memory_key="chat_history", 
         return_messages=True
     )
