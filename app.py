@@ -1,8 +1,11 @@
 import os
 import streamlit as st
 
-if "GOOGLE_API_KEY" in st.secrets:
-    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+try:
+    if "GOOGLE_API_KEY" in st.secrets:
+        os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+except Exception:
+    pass # Якщо сейфу немає (наприклад, локально), ігноруємо помилку і йдемо далі
 
 from agent import create_finance_agent
 
